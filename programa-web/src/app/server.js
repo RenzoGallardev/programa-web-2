@@ -5,7 +5,7 @@ import morgan from 'morgan';
 
 import indexRouter from '../routes/index.routes.js';
 
-//  Settings
+// Settings
 const app = express();
 app.set("port", 3000);
 
@@ -27,9 +27,12 @@ app.get("/", (req, res) => {
         msg: "Server up"
     });
 });
+
 app.use("/api", indexRouter);
 
 
-
+app.listen(app.get("port"), () => {
+    console.log(`¡Restaurante abierto! Servidor activo en http://localhost:${app.get("port")}`);
+});
 
 export default app;
